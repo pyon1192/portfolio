@@ -169,41 +169,40 @@ header {
   }
 
   .modal-button img {
-    width: 40vw;
-    height: 20vh;
+    width: 30vw;
+    height: 15vh;
     cursor: pointer;
-    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.2);  /* x-offset, y-offset, blur, color */
+    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3);  /* x-offset, y-offset, blur, color */
   }
   
   .modal {
-    display: flex;
+    display: none;
     position: fixed;
+    flex-direction: row; /* 子要素を横に並べる */
+    justify-content: center; /* 横方向の中央に配置 */
+    align-items: center;
+    width: 90%;
+    height: auto;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
     z-index: 1;
-    width: 400px;  /* モーダルの幅 */
   }
   
-  .left {
-    float: left;
-    width: 50%;
-  }
   
-  .right {
-    float: right;
-    width: 50%;
+  .modal.active {
+    display: flex;
   }
-  
-  .top, .bottom {
-    width: 100%;
-    height: 50%;  /* 上下に分割 */
-  }
-  
-  .modal-contents {
 
+  .left-contents, .right-contents {
+    width:50%;
+  }
+
+  .right-contents img {
+    max-width: 100%;
+    height: auto;
   }
 
   .overlay {
@@ -213,12 +212,42 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 黒の半透明 */
+    background-color: rgba(0, 0, 0, 0.3); /* 黒の半透明 */
     z-index: 0; /* z-indexをモーダルより低く設定 */
   }
-  
-/* 以前のCSSに加えて */
 
+  .close-button {
+    position: absolute;
+    color:white;
+    bottom: 20px;
+    top:10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(131, 214, 159);
+    border: 3px;
+    border-radius: 50%; /* 丸型にする */
+    font-size: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* 色の変更を滑らかに */
+    border: 3px solid white;  /* 3pxの白いボーダー */
+    display: flex;  /* flexboxを使う */
+    align-items: center;  /* 縦方向の中央に */
+    justify-content: center;  
+    z-index: 10;  /* z-indexを高くして最前面に */
+  }
+  
+  .close-button:hover {
+    background-color: #459c93; /* マウスオーバー時の背景色 */
+  }
+  
+  .thumbnail {
+    cursor: pointer;
+    margin: 5px;
+    width:20%
+  }
+  
+  
 
 
 /* フェードイン 

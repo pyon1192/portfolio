@@ -21,13 +21,13 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   });
-
+//モーダルウィンドウの開くか閉じるかのボタン操作
   document.addEventListener("DOMContentLoaded", function() {
     const modalButtons = document.querySelectorAll(".modal-button");
     modalButtons.forEach(function(button) {
       button.addEventListener("click", function() {
         const target = document.querySelector(button.dataset.modalTarget);
-        target.style.display = "block";
+        target.classList.add("active");
       });
     });
   
@@ -35,20 +35,19 @@ document.addEventListener("DOMContentLoaded", function() {
     closeButtons.forEach(function(button) {
       button.addEventListener("click", function() {
         const modal = button.closest(".modal");
-        modal.style.display = "none";
+        target.classList.remove("active");
       });
     });
   });
   
-
+//モーダルウィンドウ以外を薄暗くする操作
   document.addEventListener("DOMContentLoaded", function() {
     const modalButtons = document.querySelectorAll(".modal-button");
     const overlay = document.getElementById("overlay");
-    
     modalButtons.forEach(function(button) {
       button.addEventListener("click", function() {
         const target = document.querySelector(button.dataset.modalTarget);
-        target.style.display = "block";
+        target.classList.add("active");
         overlay.style.display = "block"; // オーバーレイを表示
       });
     });
@@ -57,27 +56,21 @@ document.addEventListener("DOMContentLoaded", function() {
     closeButtons.forEach(function(button) {
       button.addEventListener("click", function() {
         const modal = button.closest(".modal");
-        modal.style.display = "none";
+        modal.classList.remove("active");
         overlay.style.display = "none"; // オーバーレイを非表示
       });
     });
   });
 
-
   document.addEventListener("DOMContentLoaded", function() {
-    const modalButtons = document.querySelectorAll(".modal-button");
-    const overlay = document.getElementById("overlay");
     const thumbnails = document.querySelectorAll(".thumbnail");
     const mainImage = document.getElementById("main-image");
   
-    modalButtons.forEach(function(button) {
-      button.addEventListener("click", function() {
-        const target = document.querySelector(button.dataset.modalTarget);
-        target.style.display = "block";
-        overlay.style.display = "block";
+    thumbnails.forEach(function(thumbnail) {
+      thumbnail.addEventListener("click", function() {
+        const targetImage = thumbnail.getAttribute("data-target-image");
+        mainImage.setAttribute("src", targetImage);
       });
     });
-  
-   
-  
+  });
   
