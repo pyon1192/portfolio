@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*ボーダーやパディングが要素の幅に含まれるようにする*/
+    flex-direction: column;  /* 縦列に並べる */
+    align-items: center;     /* 横方向を中央寄せ */
+    justify-content: center; 
+  }
+
+  
+  
+header {
+    position: fixed;
+    background-color: #333; /*ヘッダーの背景色設定*/
+    color: white; /*テキスト色設定*/
+    width: 100%; /*横幅設定*/
+    padding: 1em; /*パディング(要素内の空白)設定　1em　→要素のフォントサイズと同じ　相対的な値　2em→2倍のフォントサイズ*/
+    z-index: 1;
+  
+}
+
+  nav ul {
+    list-style: none; /*リストの前に出るマーカーを消す*/
+    text-align: right; /*ul部分を右寄せ*/
+  }
+  
+  nav ul li {
+    display: inline; /*リスト項目を横並びにする*/
+    margin-right: 40px; /*右余白を20pxにする。*/
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none; /*リンクの下線を消す。*/
+    padding:50px; /*aタグ同士の余白調整*/
+  }
+
+  .hero-image-container {
+    display: flex;
+    flex-direction: column;  /* 縦列に並べる */
+    align-items: center;     /* 横方向を中央寄せ */
+    justify-content: center; 
+    padding-top: 60px;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .hero-image-container h1 {
+    font-size: 5em;
+    position: relative;
+    color: white;
+    text-align: center;  
+  }
+
+  .hero-image-container h5{
+    font-size: 2em;
+  }
+  #scrollUpButton {
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+     
+  }
+ 
+  #scrollDownButton {
+    margin-top: 30px;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(131, 216, 218);
+    border: none;
+    border-radius: 50%; /* 丸型にする */
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s; /* 色の変更を滑らかに */
+    border: 3px solid white;  /* 3pxの白いボーダー */
+    display: flex;  /* flexboxを使う */
+    align-items: center;  /* 縦方向の中央に */
+    justify-content: center;  
+    animation: upDown 1.5s infinite alternate ease-in-out;
+  }
+  
+  .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+  }
+  #scrollDownButton:hover {
+    background-color: #459c93; /* マウスオーバー時の背景色 */
+  }
+  
+  
+
+  .hero-image-container{
+    background-color: rgb(131, 216, 218);
+  }
+
+  .profile-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;  /* 縦列に並べる */
+    align-items: center;     /* 横方向を中央寄せ */
+    justify-content: center; 
+  }
+
+  @keyframes upDown {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(10px);
+    }
+  }
+  
+  .hero-image-container h1 {
+    transform: translateX(-100%);
+    animation: slideInleft 2s forwards;
+  }
+  
+  @keyframes slideInleft {
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .hero-image-container h5 {
+  transform: translateX(200%);
+    animation: slideInleft 2s forwards;
+  }
+  
+  @keyframes slideInleft {
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .profile-container h1{
+    font-size: 5em;
+    position: relative;
+    text-align: center;
+  }
+  .profile-container p{
+    margin-top:30px;
+    text-align: center;
+  }
+
+  .works-container {
+    height: 100vh;
+  }
+
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .modal-button{
+    background-color: white;
+    border: none;
+  }
+
+  .modal-button img {
+    width: 40vw;
+    height: 20vh;
+    cursor: pointer;
+    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.2);  /* x-offset, y-offset, blur, color */
+  }
+  
+  .modal {
+    display: flex;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    z-index: 1;
+    width: 400px;  /* モーダルの幅 */
+  }
+  
+  .left {
+    float: left;
+    width: 50%;
+  }
+  
+  .right {
+    float: right;
+    width: 50%;
+  }
+  
+  .top, .bottom {
+    width: 100%;
+    height: 50%;  /* 上下に分割 */
+  }
+  
+  .modal-contents {
+
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 黒の半透明 */
+    z-index: 0; /* z-indexをモーダルより低く設定 */
+  }
+  
+/* 以前のCSSに加えて */
+
+
+
+/* フェードイン 
+ h1, h5 {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  } */
+
+  
+  /*　ズームイン
+
+   h1, h5 {
+    transform: scale(0);
+    animation: zoomIn 2s forwards;
+  }
+  
+  @keyframes zoomIn {
+    to {
+      transform: scale(1);
+    }
+  } */
+  
+
+  
