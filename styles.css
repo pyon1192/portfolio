@@ -2,14 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box; /*ボーダーやパディングが要素の幅に含まれるようにする*/
-    flex-direction: column;  /* 縦列に並べる */
     align-items: center;     /* 横方向を中央寄せ */
     justify-content: center; 
   }
 
   
-  
-header {
+
+  header {
     position: fixed;
     background-color: #333; /*ヘッダーの背景色設定*/
     color: white; /*テキスト色設定*/
@@ -17,7 +16,7 @@ header {
     padding: 1em; /*パディング(要素内の空白)設定　1em　→要素のフォントサイズと同じ　相対的な値　2em→2倍のフォントサイズ*/
     z-index: 1;
   
-}
+  }
 
   nav ul {
     list-style: none; /*リストの前に出るマーカーを消す*/
@@ -55,7 +54,8 @@ header {
   .hero-image-container h5{
     font-size: 2em;
   }
-  #scrollUpButton {
+
+  scrollUpButton {
   bottom: 20px;
   right: 20px;
   background-color: transparent;
@@ -66,7 +66,7 @@ header {
      
   }
  
-  #scrollDownButton {
+  .scrollDownButton {
     margin-top: 30px;
     bottom: 20px;
     right: 20px;
@@ -84,6 +84,7 @@ header {
     align-items: center;  /* 縦方向の中央に */
     justify-content: center;  
     animation: upDown 1.5s infinite alternate ease-in-out;
+    
   }
   
   .arrow-down {
@@ -93,11 +94,10 @@ header {
     border-right: 10px solid transparent;
     border-top: 10px solid white;
   }
-  #scrollDownButton:hover {
+
+  .scrollDownButton:hover {
     background-color: #459c93; /* マウスオーバー時の背景色 */
   }
-  
-  
 
   .hero-image-container{
     background-color: rgb(131, 216, 218);
@@ -105,7 +105,7 @@ header {
 
   .profile-container {
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;  /* 縦列に並べる */
     align-items: center;     /* 横方向を中央寄せ */
@@ -148,33 +148,59 @@ header {
     position: relative;
     text-align: center;
   }
+
   .profile-container p{
     margin-top:30px;
     text-align: center;
   }
 
-  .works-container {
-    height: 100vh;
+  .works-container h1{
+    font-size: 5em;
+    position: relative;
+    text-align: center;
   }
+
+  .works-container p{
+    margin-top:30px;
+    text-align: center;
+    margin-bottom: 20vh;
+  }
+
+  .works-container {
+    justify-content: center;
+    padding-top: 15vh;
+    height: 120vh;
+    position: relative;
+  }
+  
+  .works-container .scrollDownButton {
+    position: absolute; /* 画面に固定 */
+    bottom: 0; /* 縦の中央に位置するように設定 */
+    left: 50%; /* 横の中央に位置するように設定 */
+    transform: translate(-50%, 50%); /* トランスフォームを使って完全に中央に配置 */
+    z-index: 0; /* 他の要素よりも前面に表示 */
+}
+
 
   .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-  
-  .modal-button{
-    background-color: white;
-    border: none;
+
+  .button-grid img {
+    width: 70%; /* 画像の幅を親要素の100%に設定 */
+    max-width: 600px; /* 画像の最大幅を600pxに設定 */
+    height: auto; /* 高さを自動にしてアスペクト比を保持 */
+    object-fit: cover; /* 画像を親要素にフィットさせる */
+    transition: transform 0.3s, box-shadow 0.3s; /*トランジション追加*/
   }
 
-  .modal-button img {
-    width: 30vw;
-    height: 15vh;
-    cursor: pointer;
-    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3);  /* x-offset, y-offset, blur, color */
-  }
-  
+  .button-grid img:hover {
+    transform: scale(1.05); /* 追加: サイズを少し大きくする */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 追加: 影を付ける */
+}
+
   .modal {
     display: none;
     position: fixed;
@@ -182,28 +208,43 @@ header {
     justify-content: center; /* 横方向の中央に配置 */
     align-items: center;
     width: 90%;
-    height: auto;
+    height: 80%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 20px;
+    padding: 30px;
+    margin-top: 5vh;
     z-index: 1;
+    opacity: 0; /* 初期状態: 透明 */
+    visibility: hidden; /* 初期状態: 非表示 */
+    transition: opacity 0.6s, visibility 0.6s; /* トランジション効果 */
   }
-  
-  
+
+  .modal h1 {
+    font-size: 48px;
+  }
+
   .modal.active {
     display: flex;
+    margin-top: 5vh;
+    opacity: 1; /* アクティブ状態: 完全に表示 */
+    visibility: visible; /* アクティブ状態: 表示 */
+    transition: opacity 0.3s, visibility 0s; /* visibility トランジションの遅延を削除 */
   }
 
-  .left-contents, .right-contents {
+  .left-contents {
     width:50%;
+    text-align: center;
+    margin-top: 15vh;
+  }
+  .right-contents {
+    width:50%;
+    text-align: center;
   }
 
-  .right-contents img {
-    max-width: 100%;
-    height: auto;
-  }
+
+
 
   .overlay {
     display: none;
@@ -213,7 +254,20 @@ header {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3); /* 黒の半透明 */
-    z-index: 0; /* z-indexをモーダルより低く設定 */
+    z-index: 1; /* z-indexをモーダルより低く設定 */
+  }
+  
+  .modal-button{
+    background-color: white;
+    border: none;
+  }
+
+  .modal-button img {
+    width: 40vw;
+    height: auto;
+    cursor: pointer;
+    object-fit: cover;
+    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3);  /* x-offset, y-offset, blur, color */
   }
 
   .close-button {
@@ -244,37 +298,121 @@ header {
   .thumbnail {
     cursor: pointer;
     margin: 5px;
-    width:20%
+    width:8vw;
+    height:8vh;
   }
-  
-  
 
-
-/* フェードイン 
- h1, h5 {
-    opacity: 0;
-    animation: fadeIn 2s forwards;
+  .thumbnail img {
+    width: 15vw;
+    height: 15vh;
+    object-fit: cover;
   }
-  
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  } */
 
-  
-  /*　ズームイン
-
-   h1, h5 {
-    transform: scale(0);
-    animation: zoomIn 2s forwards;
+  .preview  {
+    width: 100%;
+    height: 50vh;
+    max-height: 100%;
+    overflow-y:auto;
   }
-  
-  @keyframes zoomIn {
-    to {
-      transform: scale(1);
-    }
-  } */
-  
+
+  .preview .previewImage {
+    max-width: 100%; /* 画像の最大幅を親要素の100%に設定 */
+    height: auto; /* 高さを自動にしてアスペクト比を保持 */
+}
+
+
+
+/* スキル、資格のコンテナ */
+.skill-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.skill-text {
+  padding-top: 10vh;
+}
+.skill-text h1{
+  font-size: 5em;
+  position: relative;
+  text-align: center;
+}
+
+.skill-text p{
+  margin-top:30px;
+  text-align: center;
+  margin-bottom: 20vh;
+}
+
+
+/* カードセクション */
+.card-section {
+  width: 45%;
+  height: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* カード */
+.card {
+  text-align: center;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(0);
+}
+
+/* ホバー時のアニメーション */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* アイコン */
+.card i {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #4CAF50;
+}
+
+/* タイトル */
+.card h3 {
+  margin-top: 10px;
+  color: #333;
+}
+
+/* タイトルの下の線 */
+.card-section h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.card-section h2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #4CAF50;
+}
+
+/*詳細表示*/
+.detail {
+  display: none; /* デフォルトでは非表示 */
+  font-size: 14px;
+  color: #666;
+}
+
+.skill-card:hover .detail {
+  display: block; /* マウスオーバー時に表示 */
+}
+
 
   

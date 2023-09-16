@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     closeButtons.forEach(function(button) {
       button.addEventListener("click", function() {
         const modal = button.closest(".modal");
-        target.classList.remove("active");
+        modal.classList.remove("active");
       });
     });
   });
@@ -62,15 +62,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const thumbnails = document.querySelectorAll(".thumbnail");
-    const mainImage = document.getElementById("main-image");
-  
-    thumbnails.forEach(function(thumbnail) {
-      thumbnail.addEventListener("click", function() {
-        const targetImage = thumbnail.getAttribute("data-target-image");
-        mainImage.setAttribute("src", targetImage);
-      });
+
+
+  //skillの詳細表示
+  // 例: マウスオーバーで詳細を表示
+document.addEventListener("DOMContentLoaded", function() {
+  const skillCards = document.querySelectorAll('.skill-card');
+
+  skillCards.forEach(card => {
+    card.addEventListener('mouseover', function() {
+      // 詳細を表示する処理
     });
   });
-  
+});
+
+//モーダル内のサムネイルクリック→メインイメージに反映
+document.querySelectorAll('.thumbnail').forEach(function(thumbnail) {
+    thumbnail.addEventListener('click', function() {
+        const previewImage = thumbnail.closest('.modal').querySelector('.preview img ');
+        previewImage.src = thumbnail.src
+    });
+});
+
