@@ -84,3 +84,25 @@ document.querySelectorAll('.thumbnail').forEach(function(thumbnail) {
     });
 });
 
+//モーダルのアニメーション
+document.addEventListener('DOMContentLoaded', () => {
+  const modalButtons = document.querySelectorAll('.modal-button');
+  const modals = document.querySelectorAll('.modal');
+
+  modalButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+          const targetModalId = button.getAttribute('data-modal-target');
+          const targetModal = document.querySelector(targetModalId);
+          targetModal.classList.add('show');
+      });
+  });
+
+  modals.forEach((modal) => {
+      const closeButton = modal.querySelector('.close-button');
+      closeButton.addEventListener('click', () => {
+          modal.classList.remove('show');
+      });
+  });
+});
+
+

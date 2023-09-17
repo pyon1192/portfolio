@@ -41,10 +41,19 @@
             </p>
         <div class="overlay" id="overlay"></div>
         <div class="button-grid">
-            <button class="modal-button" data-modal-target="#modal1"><img src="/img/wix_1_1.png"></button>
-            <button class="modal-button" data-modal-target="#modal2"><img src="/img/sano_TOP.png"></button>
-            <button class="modal-button" data-modal-target="#modal3"><img src="/img/lab2.png"></button>
-            <button class="modal-button" data-modal-target="#modal4">ボタン4</button>
+            <div class="button-item">
+                <button class="modal-button" data-modal-target="#modal1"><img src="/img/wix_1_1.png"></button>
+                <p class="button-label">居酒屋HP</p>
+            </div>
+            <div class="button-item">
+                <button class="modal-button" data-modal-target="#modal2"><img src="/img/sano_TOP.png"></button>
+                <p class="button-label">会社HP</p>
+            </div>
+            <div class="button-item">
+                <button class="modal-button" data-modal-target="#modal3"><img src="/img/lab2.png"></button>
+                <p >研究ツール</p>
+            </div>
+                <button class="modal-button" data-modal-target="#modal4">ボタン4</button>
         </div>
           
           <!-- モーダルウィンドウの内容 -->
@@ -154,11 +163,13 @@
             <button class="close-button">×</button>
         </div>
         <a href="#skills" class="scrollDownButton"><span class="arrow-down"></span></a>
+
     </div>
     
 
 <!-- 全体のコンテナ -->
     <div class="skill-text" id="skills">    
+        
         <h1>My Skills</h1>
         <p>
             長期インターンや趣味での開発で得た技術、資格など。
@@ -166,7 +177,7 @@
     </div> 
     <div class="skill-container" >
     <!-- スキルセクション -->
-    <div class="card-section">
+    <div id="skill" class=" card-section">
       <h2>My Skills</h2>
       <div class="card-container">
         <div class="card skill-card">
@@ -229,7 +240,12 @@
   </div>
   
   
-          
+  <footer>
+    <div class="footer-content">
+        <p>© 2023 Your Name. All rights reserved.</p>
+    </div>
+</footer>
+
           
         
           
