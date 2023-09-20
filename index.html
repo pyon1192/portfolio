@@ -4,8 +4,9 @@
         <title>About Sikibuton</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    </head>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+  </head>
 <body>
     <header>
     <nav>
@@ -40,6 +41,7 @@
                 趣味での開発から、大学の研究内での開発、依頼を受けた会社HPの開発など。
             </p>
         <div class="overlay" id="overlay"></div>
+        <div class="works">
         <div class="button-grid">
             <div class="button-item">
                 <button class="modal-button" data-modal-target="#modal1"><img src="/img/wix_1_1.png"></button>
@@ -51,24 +53,34 @@
             </div>
             <div class="button-item">
                 <button class="modal-button" data-modal-target="#modal3"><img src="/img/lab2.png"></button>
-                <p >研究ツール</p>
+                <p class="button-label">研究ツール</p>
             </div>
-                <button class="modal-button" data-modal-target="#modal4">ボタン4</button>
-        </div>
+            <div class="button-item">
+                <button class="modal-button" data-modal-target="#modal4"><img src="/img/chat2.png"></button>
+                <p class="button-label">お悩み相談サイト</p>
+            </div>
           
           <!-- モーダルウィンドウの内容 -->
         <div id="modal1" class="modal"> 
             <div class="left-contents">
-                <h1>居酒屋HP</h1>
+                <div class="index-title">
+                    <span class="line"></span>
+                    <h2>居酒屋HP</h2>
+                    <span class="line"></span>
+                  </div>
                 <p>Wixで居酒屋の店舗を想定した仮想ホームページ
                     <br>ページはトップページ、メニューページ、お問い合わせ等です。
                     <br>Wixは少々重くなりがちなので、できるだけ軽量な
                     <br>デザインを心がけました。
                 </p>
-                <h4>言語、使用ツール、リソース</h4>
+                <div class="index-title">
+                    <span class="line"></span>
+                    <h4>言語、使用ツール、リソース</h4>
+                    <span class="line"></span>
+                  </div>
                 <p>
                     Wix
-                </p>    
+                </p>
             </div>
             <div class="right-contents">
                 <div class="thumbnails">
@@ -85,17 +97,28 @@
         </div>
         <div id="modal2" class="modal"> 
             <div class="left-contents">
-                <h1>会社HP</h1>
+                <div class="index-title">
+                    <span class="line"></span>
+                    <h2>会社HP</h2>
+                    <span class="line"></span>
+                  </div>
                 <p>緑を基調としてクリーンなイメージの会社HP作成
                     <br>友人の起業に際して依頼されたため開発
                     <br>ページ数は計4つ,TOP/事業内容/会社概要/お問い合わせ
                     <br>レスポンシブに対応させ、動線を意識したコーディングを心がけました。
                     <br>javascriptを用いて動的な箇所も作りつつ、見やすさを重視しました。
                 </p>
-                <h4>言語、使用ツール、リソース</h4>
+                <div class="index-title">
+                    <span class="line"></span>
+                    <h4>言語、使用ツール、リソース</h4>
+                    <span class="line"></span>
+                  </div>
                 <p>
                     html/css,javascript,jQuery
+                    <br><br>
+                    <a href="https://github.com/pyon1192/sano_project"><i class="fab fa-github"></i>ソースコード</a>
                 </p>    
+                <h4></h4>
             </div>
             <div class="right-contents">
                 <div class="thumbnails">
@@ -113,23 +136,36 @@
         </div>
         <div id="modal3" class="modal"> 
             <div class="left-contents">
-                <h1>ツール開発</h1>
+                <div class="index-title">
+                    <span class="line"></span>
+                    <div class="index-title">
+                        <span class="line"></span>
+                        <h2>ツール開発</h2>
+                        <span class="line"></span>
+                      </div>
+                    <span class="line"></span>
+                  </div>
                 <p>通信信頼性に関するグラフ理論演算ツール
                     <br>特定の点から点の経路全ての設備が正常である確率計算や
                     <br>偏微分の近似計算を行うツール
                     <br>グラフサイズを設定することで使用可能
                     <br>処理にかかる時間や、結果のグラフを描画することができる。
                 </p>
-                <h4>言語、使用ツール、リソース</h4>
+                <div class="index-title">
+                    <span class="line"></span>
+                    <h4>言語、使用ツール、リソース</h4>
+                    <span class="line"></span>
+                  </div>
                 <p>
-                    Python
+                    Python<br><br>
+                    <a href="https://github.com/pyon1192/lab"><i class="fab fa-github"></i>ソースコード</a>
                 </p>      
             </div>
             <div class="right-contents">
                 <div class="thumbnails">
                     <img class="thumbnail" src="/img/lab1.png" data-target-image="/img/lab1.png" alt="Thumbnail 1">
                     <img class="thumbnail" src="/img/lab2.png" data-target-image="/img/lab2.png" alt="Thumbnail 2">
-                    <img class="thumbnail" src="/img/lab3.png" data-target-image="/img/lab3.png" alt="Thumbnail 2">
+                    <img class="thumbnail" src="/img/lab3.png" data-target-image="/img/lab3.png" alt="Thumbnail 3">
                     <!-- 他のサムネイル -->
                 <div class="preview">
                     <img src="/img/lab1.png" class="previewImage">
@@ -140,42 +176,58 @@
         </div>
         <div id="modal4" class="modal"> 
             <div class="left-contents">
-                
-                <h1>お悩み相談サイト</h1>
+                <div class="index-title">
+                    <span class="line"></span>
+                    <h2>お悩み相談サイト</h2>
+                    <span class="line"></span>
+                  </div>
                 <p>chatGPTを用いたお悩み相談サイト
-                    <br>ユーザーが入力したテキストに対してレスポンスを表示する
-                    <br>口調をボタンで切り替えることが可能
-                    <br>javascriptを用いて動的な猫のイラストを作成
+                    <br>ユーザーが入力したテキストに対してリアルタイムで返事をしてくれる
+                    <br>レスポンス待機時間は考え中のアニメーションが表示
+                    <br>猫がカーソルを目で追うようなアニメーションをjavascriptで実装
+                    <br>ボタン選択で返事の口調を変更で切る
                 </p>
-                <h4>言語、使用ツール、リソース</h4>
+                <div class="index-title">
+                    <span class="line"></span>
+                    <h4>言語、使用ツール、リソース</h4>
+                    <span class="line"></span>
+                  </div>
                 <p>
-                    html/css,javascript,jQuery,Python/flask
-                </p>   
-        </div>
+                    html/css,javascript,jQuery,<br>Python/flask<br><br>
+                <a href="https://github.com/pyon1192/serene"><i class="fab fa-github"></i>ソースコード</a>   
+                </p>
+            </div>
             <div class="right-contents">
                 <div class="thumbnails">
-                    <img class="thumbnail" src="/img/sano_TOP.png" data-target-image="/img/wix_1_2.png" alt="Thumbnail 1">
-                    <img class="thumbnail" src="/img/wix_1_3.png" data-target-image="/img/wix_1_3.png" alt="Thumbnail 2">
-                    <!-- 他のサムネイル -->
+                    <img class="thumbnail" src="/img/chat1.png" data-target-image="/img/chat1.png" alt="Thumbnail 1">
+                    <img class="thumbnail" src="/img/chat2.png" data-target-image="/img/chat2.png" alt="Thumbnail 2">
+                    <img class="thumbnail" src="/img/chat3.png" data-target-image="/img/chat3.png" alt="Thumbnail 3">
+                    <img class="thumbnail" src="/img/chat4.png" data-target-image="/img/chat4.png" alt="Thumbnail 4">
+                    <img class="thumbnail" src="/img/chat5.png" data-target-image="/img/chat5.png" alt="Thumbnail 5">
+                     <!-- 他のサムネイル -->
+                <div class="preview">
+                    <img src="/img/chat1.png"  class="previewImage">
                 </div>
-                <img src="/img/wix_1_1.png" id="main-image">
-            </div>
+                </div>
             <button class="close-button">×</button>
+            </div>
+        </div>
+        </div>  
         </div>
         <a href="#skills" class="scrollDownButton"><span class="arrow-down"></span></a>
-
-    </div>
+       </div>   
     
 
 <!-- 全体のコンテナ -->
-    <div class="skill-text" id="skills">    
+<div class="skill-text" id="skills">    
         
-        <h1>My Skills</h1>
-        <p>
-            長期インターンや趣味での開発で得た技術、資格など。
-        </p>
-    </div> 
+    <h1>My Skills</h1>
+    <p>
+        長期インターンや趣味での開発で得た技術、資格
+    </p>
+</div> 
     <div class="skill-container" >
+        
     <!-- スキルセクション -->
     <div id="skill" class=" card-section">
       <h2>My Skills</h2>
@@ -188,7 +240,7 @@
         <div class="card skill-card">
             <i class="fab fa-php"></i>
             <h3>PHP</h3>
-            <p class="detail">WordPressを用いた際に、投稿をfor文で表示したり、<br>htmlファイルのHPをワードプレス化する際に<br>ヘッダー、フッターで使用<br></p>
+            <p class="detail">WordPressを用いた際に、投稿をfor文で表示、<br>htmlファイルのHPをワードプレス化する際に<br>ヘッダー、フッターで使用<br></p>
           </div>
         <div class="card skill-card">
           <i class="fab fa-html5"></i>
@@ -212,7 +264,6 @@
         </div>
       </div>
     </div>
-    
     <!-- 資格セクション -->
     <div id="qualifications" class="card-section">
       <h2>My Qualifications</h2>
@@ -238,11 +289,14 @@
     </div>
     
   </div>
+  <div class="fin">
+    <h1>最後までご覧いただきありがとうございます！</h1>
+  </div>
   
   
   <footer>
     <div class="footer-content">
-        <p>© 2023 Your Name. All rights reserved.</p>
+        <p>© 渡辺.敷布団 </p>
     </div>
 </footer>
 
